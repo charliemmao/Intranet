@@ -1,0 +1,91 @@
+phpPgAdmin - ChangeLog
+v 2.3   - 04/22/01
+	+ Lang: updated catalan lang file (Marc Balcells Sanahuja [marc@odtsl.com])
+	+ Bugfix: Removed urlencode/urldecode problems in confirm sql
+	+ Feature: Ability to create/save SQL queries as reports and run at a later date
+	+ Feature: Ability to select server from initial login
+	+ Fix: Priviledges warning and db_dump file warning: Invalid content of {} in the regexp on some platforms
+	+ Feature: Added page to view all database
+	+ Feature: Allow setting to filter databases the user does not own. 
+	  This Does not account for ACLs on specific relations
+	+ BugFix: When cfgServerDefault set to 0 (no default), it would fail.
+	+ BugFix: Fixed serious security bug
+
+v 2.2.1 - 12/15/2000
+	+ Lang: updated french lang file (Cyril Chaboisseau [cyril.chaboisseau@obs.coe.int])
+	+ Lang: Added portuguese translation
+	+ Feature: bolded NOT NULL fields in insert/edit
+	+ Bugfix: when column name had a space in it, it wasn't getting passed correctly in insert/edit 
+	  (John Unsworth [jmu2m@virginia.edu])
+	+ Bugfix: If choosing not to execute query when prompted for the confirmation, the variable was 
+	  being checked for the english "No" rather than the language specific $strNo.
+	  (Axe Nihilo [nihilo@online.ru])
+	+ Bugfix: When attempting to drop a column, it would give an error:
+	  "ERROR: DefineIndex: attribute "[dropped field]" not found".  phpPgAdmin was attempting to create
+	  and index for the field in the recreate table statement.
+	+ Bugfix: When creating a table or adding a field, if both index and unique were checked, 
+	  an error would occur.
+	+ Feature: Added support for uploading sql dump files
+	+ Feature: Added printable display
+	+ Bugfix: After using "Select" to display table and then editing, the following display of the table wasn't
+	  displaying edit or delete links because the table name wasn't getting passed correctly.
+	+ Feature: Added ability to insert a row from a browse result
+	+ Bugfix: When executing a mutli-line query, the noQuoteSplit function was not accounting for escaped quotes
+	+ Feature: Added ability to specify the max number of page links to display when browsing (doj [doj@cubic.org])
+	+ Feature: Added links to vacuum and vacuum analyze database (doj [doj@cubic.org])
+	+ Bugfix: Postgres version prior to 7.0 didn't like newlines (\n) in the queries.  
+	  Linebreaks were removed from the queries with a function within the pg_exec call to maintain code readability.
+	+ Feature/Bugfix: Changed login from http authentication to a common login html form.
+	  This corrected several problems as well as allows for the ability to logout.
+	+ Feature: Added ability to modify a table's ACL (permission list)
+	+ Bugfix: Removed redundant "AND" in create view statements
+	+ Feature: Added ability to display, drop and dump triggers
+	+ Feature: Added dump of ACL (privileges)
+	+ Feature: Added ability to select single foreign key in table create (ignored in < 7.x)
+	+ Bugfix: The EXCEPT clause in the tbl_properties.inc.php was causing a parse error in < 7.x
+	+ Lang: updated chinese big5 (traditional) lang file (Anthony Liu [utero@2bucks.net])
+	+ Bugfix: A function with a return type of OPAQUE was not getting displayed in "Display Functions"
+	+ Feature: Added ability for addtional where clauses in creation of a view
+	+ Feature: Added ability to update priviledges on all objects in database
+	+ Bugfix: Fixed displaying of databases the user has access to view (Xavier Henner [henner@iie.cnam.fr])
+
+ v 2.1   - 07/29/2000
+ 	+ Bugfix: navigation links in browse
+	+ Changed all php short tags to long (rob)
+	+ Removed link to LOAD DATA (postgres doesn't have this functionality)
+	+ Bugfix: 'too many open clients' bug in table listing in left nav
+	+ Bugfix: Removed 'un-implimented' portions of ALTER TABLE statement
+	+ Added support for ALTER DEFAULT introduced in 7.x
+	+ Added support for CREATE [UNIQUE] INDEX and ALTER DEFAULT when 
+	  adding columns to an existing table
+	+ Added support for ALTER TABLE DROP COLUMN work-around
+	+ Bugfix: Parse error on line 6 of tbl_properties.php on certain platforms
+	  (Cássio Alexandre Pereira de Castro [cassio@embare.com.br])
+	+ Bugfix: Allow User Admin of additional servers
+	  (Mike Stolove [mstolove@home.com])
+	+ Bugfix: db_details was not passing server variable correctly resulting 
+	  in "database [yourdb] is not found" error
+	+ Bugfix: Dump of varchar without set length was attempting to set a 
+	  negative number for the length... obviously causing errors in create
+	+ Bugfix: Small bug in qbe... it wasn't placing the "checked" correctly on the "AND"
+	+ Bugfix: parse error on some platforms/versions of php in tbl_properties.php
+	  and user_admin.php caused by the lack of braces {} around the include
+	+ Added support for groups administration (s v sudharshan - svsudhir@mailcity.com)
+	+ Bugfix: If edit or delete when viewing browse, it wouldn't return to the browse 
+	  (Antonio Da Silva [tonio@newsdeck.com])
+	+ Bugfix: Multiple columns in primary key was resulting in parse error because of 
+	  no space after the AND between each column (Ganesh Prasad [gprasad@reply2.com.au])
+	+ Added support for quoting all relations -- $cfgQuotes in config.inc.php
+	+ Added support for connecting directly to postgres without the -i option
+	+ Bugfix: wasn't checking the expires field of user tables
+	+ Bugfix: set default for expires field, otherwise, nobody logs in
+	+ Bugfix: Fixed connection strings when db name has space (cfgQuotes = true)
+	+ Added support for edit/delete on unique key in addition to the primary key
+	+ Bugfix: unique/primary key on date/timestamp field wasn't being quoted (Zot O'Connor)
+	+ Bugfix: Connection was using superuser account every time... didn't reconnect after adv_auth (Zot)
+	+ Bugfix: Put in version check for quoting of password in ALTER USER... 
+	  less than v7 doesn't seem to like the quotes (Adam [adamw@amnet.pl])
+	+ Bugfix: Fixed extchg.sh to not change the <?php to <?php3 thus giving parse error
+
+ v 2.0.1 - 06/01/2000  	+ Initial port from phpMyAdmin completed and debugged
+

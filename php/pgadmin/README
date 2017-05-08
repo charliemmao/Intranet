@@ -1,0 +1,79 @@
+phpPgAdmin - Readme
+
+  A set of PHP-scripts to adminstrate PostgreSQL over the WWW.
+
+  Version 2.2.1 - 12/25/2000
+  http://www.greatbridge.org/project/phppgadmin
+
+  Copyright (C) 1999-2000 Dan Wilson <phpPgAdmin@acucore.com>
+  Copyright (C) 1998-1999 Tobias Ratschiller <tobias@dnet.it>
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License <http://www.opensource.org/gpl-license.html>
+  for more details.
+
+  Requirements: 
+    PHP 3.x+
+    PostgreSQL (tested with 6.5.x and 7.0.x)
+    a web-browser (duh!)
+                
+  Summary:
+    phpPgAdmin is intended to handle the administration of PosgtresSQL over the WWW.
+    Currently it can:
+    - create and drop databases
+    - create, copy, drop and alter tables/views/sequences/functions
+    - edit and add fields (to the extent Postgres does)
+    - execute any SQL-statement, even batch-queries
+    - manage keys on fields
+    - load text files into tables
+    - create and read dumps of tables
+    - administer one single database
+	- administer postgres users
+
+  Download:
+    You can get the newest version at http://www.greatbridge.org/project/phppgadmin/download/download.php
+
+  Credits:
+  	This work is based on Tobias Ratschiller's phpMyAdmin for MySQL.  Major portions 
+	have been ported to work with PostgreSQL and with that came much new code, however
+	the concepts and ideas all (except User Administration and Postgres specific functionalitye) 
+	came from phpMyAdmin.
+
+    I used phpMyAdmin for several months at my last company.  After leaving the company, I 
+	began to use PostgreSQL instead of MySQL and completely missed the amazing features 
+	and funcitonality available in phpMyAdmin.  So what better to do than port it.
+	
+	phpMyAdmin in turn is based on Peter Kuppelwieser's MySQL-Webadmin. It was his idea 
+    to create a web-based interface to MySQL using PHP3. Although Tobias did not
+    used any of his source-code, there were some concepts borrowed from 
+    him. phpMyAdmin was created because Peter told Tobias he wasn't going to further 
+    develop his (great) tool.
+	
+    Thanks go to 
+	  - Tobias Ratschiller <tobias@dnet.it> for phpMyAdmin which was a marvelously written program.
+	  - Rob Casson <rob@styro.lib.muohio.edu> who originally ported phpMyAdmin.  Although I didn't use
+	    any of his code, he inspired me to work on a complete port of all the functionality.
+	  - Marcellus Barrus <mbarrus@acucore.com> for some bug fixes and lots of debugging
+	  - Brian Budnick <brian@utrave.org> for comments/suggestions and debugging
+
+    And thanks to everyone else who sent me email with suggestions, bug-reports and
+    or just some feedback.
+   
+  Installation:
+    Please see the INSTALL file.
+    For info on configuration have a look at Documentation.html
+  
+  ChangeLog:
+    Now in ChangeLog
+  
+  Documentation:
+    Basic documentation available in Documentation.html
+
+    Enjoy,
+        Dan Wilson

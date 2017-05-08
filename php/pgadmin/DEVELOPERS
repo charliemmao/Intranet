@@ -1,0 +1,35 @@
+phpPgAdmin - Developer's Information
+
+ phpPgAdmin is Open Source, so you're invited to contribute to it.
+ Many great features have been written by other people and you too
+ can help to make phpPgAdmin a useful tool.
+ 
+ If you're planning to contribute source, please read the following 
+ information:
+ 
+ + All files include header.inc.php (layout), lib.inc.php (common functions)
+   and config.inc.php. All configuration data belongs in config.inc.php. 
+   Please keep it free from other code. 
+   Commonly used functions should be added to lib.inc.php.
+ + Obviously, you're free to use whatever coding style you want. But please
+   try to keep your code as simple as possible: beginners are using phpPgAdmin
+   as an example application.
+ + Please try to keep up the file-naming conventions. Table-related stuff
+   goes to tbl_*.php, db-related code to db_*.php and so on.
+ + Please don't use verbose strings in your code, instead add the string
+   (at least) to english.inc.php and echo it out. 
+ + If you want to be really helpful, write an entry for the ChangeLog.
+ 
+ IMPORTANT:
+  The following method is preferred for new developers:
+  - fetch the current CVS tree over anonymous CVS:
+    cvs -d :pserver:anonymous@www.greatbridge.org:/usr/local/cvsroot/phppgadmin login
+    [Password: anonymous]
+    cvs -d :pserver:anonymous@www.greatbridge.org:/usr/local/cvsroot/phppgadmin checkout phpPgAdmin
+    [This will create a new sub-directory named phpPgAdmin]
+  - add your stuff
+  - send me the file(s) you've modified
+
+  Write access to the CVS tree is granted only to developers who have already
+  contributed something useful to phpPgAdmin.  If you're interested in that, 
+  please contact me.

@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>phpPgAdmin - Documentation</title>
+<style type="text/css">
+<!--
+.navigation 
+  {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 10pt;
+  left: 10px;
+  position: relative;
+  color:#000099; font-weight: normal  ; text-indent:10pt}
+.navigation:hover
+  {
+  background-color: #99CCFF; font-weight: bolder}
+h1 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-large; font-weight:bold; color: #000066}
+.simple {  font-family: Arial, Helvetica, sans-serif; font-size: smaller; color: #000000}
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
+td { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size:large; font-weight:bold; color: #000066 }
+-->
+</style></head>
+
+<body bgcolor="#bbbbbb">
+<h1>phpPgAdmin 2.0.x- Documentation</h1>
+
+<a href="http://www.greatbridge.org/project/phppgadmin" class="navigation">http://www.greatbridge.org/project/phppgadmin</a>
+<br><a href="mailto:phpPgAdmin@acucore.com" class="navigation">Dan Wilson</a>
+
+<p>Version history: <a href="ChangeLog">ChangeLog</a><br>
+  Installation instructions: <a href="INSTALL">INSTALL</a><br>
+  General notes: <a href="README">README</a></p>
+<h2>Configuration</h2>
+<p>All configurable data is placed in config.inc.php.</p>
+<p><b>$cfgServers</b> array<br>
+  phpPgAdmin supports the adminstration of multiple PostgreSQL servers. 
+  A $cfgServers-array contains the login information for 
+  the different server. $cfgServers[0]['host'] contains the hostname of the first server, 
+  $cfgServers[0]['host'] the hostname of the second server, etc. If you have only one server to administer,
+  simply leave free the hostname of the other $cfgServer-entries.
+<p><b>$cfgServers[n]['local']</b> bool<br>
+  Determines whether the host is on the local machine or not.</p>
+<p><b>$cfgServers[n]['port']</b> string<br>
+  The port-number of your n-th PostgreSQL server. Default is 5432.</p>
+<p><b>$cfgServers[n]['host']</b> string<br>
+  The hostname of your n-th PostgreSQL server. E.g. localhost.</p>
+<p><b>$cfgServers[n]['adv_auth']</b> boolean<br>
+  Whether basic or advanced authentification should be used for this server. Basic authentification 
+  ($adv_auth = false) is the plain old way: username and password are stored in 
+  config.inc.php. Advanced authentication $adv_auth = true) allows you to log in as any valid 
+  PostgreSQL user via HTTP-Auth. All you have to provide in config.inc.php is a standard user which 
+  can connect to PostgreSQL and read the PostgreSQL user table.<br>
+  Using advanced authentification is recommended:</p>
+<ul>
+  <!--li> when phpPgAdmin is running in a multi-user environment where people have 
+    shell-access that you don't want to know the username/password for PostgreSQL.</li-->
+  <li>when you want to give users access to their own database and don't want 
+    them to play around with others.</li>
+</ul>
+<p><b>$cfgServers[n]['user']</b> string<br>
+  <b>$cfgServers[n]['password']</b> string<br>
+  The user/password-pair which phpPgAdmin will use to connect to this PostgreSQL server. 
+  Not needed when using advanced authentication.</p>
+<p><b>$cfgServers[n]['stduser'] </b>string<br>
+  <b>$cfgServers[n]['stdpass']</b> string<br>
+  A user/password pair used to verify the real user/password pair when using advanced 
+  authentification. This user must be able to connect to PostgreSQL and read the PostgreSQL 
+  user table. Not needed when using basic authentication.</p>
+<p><b>$cfgServers[n]['only_db']</b> string<br>
+  If set to a database name, only this database will be shown to the user.<br>
+</p>
+
+<p><b>$cfgDefaultDB</b> string<br>
+The default database is used to connect to the database to check the adv_auth and perform other "general" tasks.
+This can actually be any database you currently have on your system.  
+It just needs _a_ database to connect and check the system tables.
+</p>
+
+<p><b>$cfgSuperUser</b> string<br>
+Set the $cfgSuperUser to be the user you used to install postgres.
+This is just used to filter out the system functions/tables when listing
+
+<p><b>$cfgUsePass</b> bool</br>
+Set to true if you want to authenticate against the password as well as the username.
+In order to authenticate with the password, you must update them in the user admin section.
+You should leave this as false until you are able to get in and update the passwords.
+</p>
+
+<p><b>$cfgSysTables</b> bool<br>
+If you want to be able to view the contents and structure of the System Catalog/Tables set this to true.
+If you are new to Postgres or are not familiar with the system tables, you should leave this as false.
+</p>
+
+<p><b>$cfgUserAdmin</b> bool<br>
+If you want the web interface to administer postgres user, set this as true.
+</p>
+
+<p><b>$cfgDebug</b> bool<br>
+Set this to true during development of phpPgAdmin
+</p>
+
+<p><b>$cfgQuotes</b> bool<br>
+If you want to quote all relations (enabling capitalization), set this to true.
+</p>
+
+<p><b>$cfgMaxPages</b> int<br>
+This value controls the number of links to different "pages" when browsing a table.  
+It will display $cfgMaxPages number of links before and after the current page.
+</p>
+
+<p><b>$cfgManualBase</b> string<br>
+  If set to an URL which points to the PostgreSQL documentation, appropriate help links 
+are generated.<br>
+</p>
+<p><b>$cfgPersistentConnections </b>boolean<br>
+  Whether persistent connections should be used or not (pg_connect or pg_pconnect). 
+  Persistent connection are not currently recomended as the author has expirienced unexpected results.</p>
+<!--p><b>$cfgPostgreSQLadmin </b>string<br>
+  Path to PostgreSQL Admin. Only used to reload PostgreSQL.</p-->
+<p><b>$cfgConfirm </b>boolean<br>
+  Whether a warning (&quot;Are your really sure..&quot;) should be displayed when 
+  you're about to loose data.</p>
+<p><b>$cfgMaxRows </b>integer<br>
+  Number of rows displayed when browsing a resultset. If the resultset contains 
+  more rows, Previous/Next links will be shown.</p>
+<p><b>$cfgMaxInputsize </b>integer<br>
+  Size of the edit-field when adding a new record to a table.</p>
+<p><b>$cfgBorder </b>integer<br>
+  The size of a table's border.</p>
+<p><b>$cfgThBgcolor </b>string [HTML color]<br>
+  The color (HTML) used for table headers.</p>
+<p><b>$cfgBgcolorOne </b>string [HTML color]<br>
+  The color (HTML) #1 for table rows.</p>
+<p><b>$cfgBgcolorTwo </b>string [HTML color]<br>
+  The color (HTML) #2 for table rows.</p>
+<p><b>$cfgOrder </b>string ["DESC"|"ASC"]<br>
+  Defines whether fields are displayed in ascending ("ASC") order or in descending 
+  ("DESC") order when you click on the field-name. 
+<!--p><b>$cfgShowBlob </b>boolean<br>
+  Defines whether BLOB fields are shown when browsing a table's content or not.</p-->
+<p><b>$cfgShowSQL </b>boolean<br>
+  Defines whether sql-queries generated by phpPgAdmin should be displayed or not.</p>
+<!--p><b>$cfgColumnTypes </b>array<br>
+  All possible types of a PostgreSQL column. In most cases you don't need to edit this.</p-->
+<!--p><b>$cfgFunctions </b>array<br>
+  A list of functions PostgreSQL supports. In most cases you don't need to edit this.</p-->
+<!--p><b>$cfgAttributeTypes </b>array<br>
+  Possible attributes for fields. In most cases you don't need to edit this.</p-->
+
+<h2>FAQ - Frequently Asked Questions</h2>
+<p><b>I can't insert new rows into a table - PostgreSQL brings up a SQL-error.<br>
+  </b>Most of the time it just that - a SQL error. Probably you're specifying 
+  a wrong field-type. Common errors include:</p>
+<ul>
+  <li>VARCHAR without a size argument</li>
+  <li>TEXT or BLOB with a size argument</li>
+</ul>
+<p>At least I made this error often when I started using PostgreSQL :-)<br>
+  Have a look at the PostgreSQL manual (syntax chapter) when in doubt.</p>
+<p><b>phpPgAdmin can't connect to PostgreSQL. What's wrong?<br>
+  </b>Either there is an error with your PHP setup or your username/password is 
+  wrong. Try to make a small script which uses pg_connect and see if it works. 
+  If it doesn't, it may be you haven't even compiled PostgreSQL support into PHP.</p>
+<p><b>I cannot edit the content of a table, even if the README says this is a 
+  feature of phpPgAdmin.<br>
+  </b>phpPgAdmin allows only editing of a table's content if the table contains 
+  a primary or unique key.</p>
+<p><b>phpPgAdmin always gives "Access denied" when using advanced authentification.<br>
+  </b>This could happen for several reasons:
+   <ul>
+    <li>$stduser/$stdpassword is wrong. Try to turn off $adv_auth and use this username and password to connect to PostgreSQL.
+    <li>The username/password you specify in the login-dialog is wrong. Try the same as above and see if it works.
+    <li>You have already setup a security mechanism for the phpPgAdmin-directory, eg. a .htaccess file. This would interfere with phpPgAdmin's authentification, so remove it.</p>
+   </ul>
+<p><b>I would like to help out with the development of phpPgAdmin. How should I proceed?<br>
+  </b>
+  The following method is preferred for new developers:
+  <ul>
+  <li>fetch the current CVS tree over anonymous CVS:<br>
+  cvs -d :pserver:anon@cvs.acucore.com:/usr/local/cvs login<br>
+  [Password: phpPgAdmin]
+  cvs -d :pserver:anon@cvs.acucore.com:/usr/local/cvs checkout phpPgAdmin<br>
+  [This will create a new sub-directory named phpPgAdmin]
+  <li>add your stuff
+  <li>send me the modified files (tar'ed and gzip'ed)
+  Write access to the CVS tree is granted only to experienced developers who have already contributed something useful to phpPgAdmin.<br>
+  Also, have a look at the file DEVELOPERS. 
+  </ul>
+<p><b>What's the preferred way of making phpPgAdmin secure against evil access?<br>
+  </b>
+  This depends on your system. If you're running a server which cannot be accessed by other people, it's sufficient to use the directory protection bundled with your webserver (with Apache you can use .htaccess files, for example). If other people have telnet access to your server, it's not a good idea to store the PostgreSQL password in clear text in your config.inc.php file. You should use phpPgAdmin's advanced authentification feature in this case.
+</body>
+</html>

@@ -1,0 +1,39 @@
+body, p, i, div, input, textarea, form { 
+	font-family: Verdana;
+	font-size: 10pt; 
+	font-weight: bold; 
+	background-color: #bbbbbb
+}
+.tr1    { font-size: 10pt; color: #000000; background-color: #dddddd }
+.tr2    { font-size: 10pt; color: #000000; background-color: #cccccc}
+
+tr    { font-size: 10pt; color: #000000; background-color: #cccccc}
+th    { font-size: 10pt; color: #000000}
+td    { font-size: 10pt; color: #000000}
+table    { font-size: 10pt; color: #000000; background-color: #dddddd}
+
+A:active {
+	text-decoration : underline;
+	font-size : 10px;
+	font-family : Verdana;
+	color : #996633;
+}
+
+A:link {
+	text-decoration : underline;
+	font-size : 10px;
+	font-family : Verdana;
+	color : #0000ff;
+}
+A:visited {
+	text-decoration : underline;
+	font-size : 10px;
+	font-family : Verdana;
+	color : #ff00ff;
+}
+A:hover {
+	text-decoration : none;
+	font-size : 10px;
+	font-family : Verdana;
+	color : #996633;
+}

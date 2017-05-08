@@ -1,0 +1,37 @@
+<!doctype html public "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; Charset=iso-8859-1">
+<title></title>
+<SCRIPT LANGUAGE="JavaScript">
+defaultStatus=" logged into Webmin 0.86 on roger (Redhat Linux 7.1)";
+</SCRIPT>
+</head>
+<body bgcolor=#ffffff link=#0000ee vlink=#0000ee text=#000000   onLoad='document.forms[0].pass.value = ""; document.forms[0].user.focus()'>
+<table width=100%><tr>
+<td width=15% valign=top align=left></td>
+<td align=center width=70%></td>
+<td width=15% valign=top align=right></td></tr></table>
+<hr>
+<center>
+<form action=/session_login.cgi method=post>
+<input type=hidden name=page value='/?cat=webmin'>
+<table border width=40%>
+<tr bgcolor=#9999ff> <td><b>Login to Webmin</b></td> </tr>
+<tr bgcolor=#cccccc> <td><table cellpadding=3>
+<tr> <td colspan=2 align=center>You must enter a username and password to login to the Webmin server on <tt>roger</tt>.</td> </tr>
+<tr> <td><b>Username</b></td>
+<td><input name=user size=20 value=''></td> </tr>
+<tr> <td><b>Password</b></td>
+<td><input name=pass size=20 type=password></td> </tr>
+<tr> <td colspan=2 align=center><input type=submit value='Login'>
+<input type=reset value='Clear'><br>
+<input type=checkbox name=save value=1> Remember login permanently?
+</td> </tr>
+</table></td></tr></table><p><hr>
+</form></center>
+</body></html>
+<!--
+/usr/libexec/webmin
+-->

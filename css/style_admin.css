@@ -1,0 +1,46 @@
+td, body, p, div, form, button, select, text, input, textarea { 
+	font-family: Tahoma; font-size: 8pt 
+}
+
+.nb       { font-family: Tahoma; font-size: 8pt; font-weight: bold }
+.nbr         { font-family: Tahoma; font-size: 8pt; color: #FF0000; font-weight: bold }
+.nbg         { font-family: Tahoma; font-size: 8pt; color: #00FF00; font-weight: bold }
+.nbb         { font-family: Tahoma; font-size: 8pt; color: #0000FF; font-weight: bold }
+.nn       { font-family: Tahoma; font-size: 8pt}
+.nnr         { font-family: Tahoma; font-size: 8pt; color: #FF0000 }
+.nng         { font-family: Tahoma; font-size: 8pt; color: #00FF00 }
+.nnb         { font-family: Tahoma; font-size: 8pt; color: #0000FF }
+
+.tr1    { font-size: 8pt; color: #000000; background-color: #dddddd }
+.tr2    { font-size: 8pt; color: #000000; background-color: #cccccc}
+
+.td1    { font-size: 8pt; color: #000000; background-color: #FFEBFF}
+.td2    { font-size: 8pt; color: #000000; background-color: #E1E1BE}
+
+A:active {
+	text-decoration : underline;
+	font-size : 12px;
+	font-family : Verdana;
+	color : #996633;
+}
+
+A:link {
+	text-decoration : underline;
+	font-size : 12px;
+	font-family : Verdana;
+	color : #0000ff;
+}
+
+A:visited {
+	text-decoration : underline;
+	font-size : 12px;
+	font-family : Verdana;
+	color : #ff0000;
+}
+
+A:hover {
+	text-decoration : none;
+	font-size : 12px;
+	font-family : Verdana;
+	color : #ff00ff;
+}
